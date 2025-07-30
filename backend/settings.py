@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k2n18h0)d*wv--1t2d9r92qghjjpm&f*je%5)_i7y45ci77jy^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users',
     'core',
     'rest_framework',
+    'drf_spectacular'
     
 ]
 
@@ -141,5 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Rest Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 1
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'PAGE_SIZE': 10
 }

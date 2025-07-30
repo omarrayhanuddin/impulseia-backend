@@ -23,7 +23,7 @@ class ProjectImageSerializer(serializers.ModelSerializer):
         read_only_fields = ["created_at", "updated_at"]
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class ProjectDetailSerializer(serializers.ModelSerializer):
     category = ProjectCategorySerializer(read_only=True)
     images = ProjectImageSerializer(many=True, read_only=True)
 
@@ -34,10 +34,23 @@ class ProjectSerializer(serializers.ModelSerializer):
             "name",
             "category",
             "description",
-            "url",
             "created_at",
             "updated_at",
             "images"
+        ]
+        read_only_fields = ["created_at", "updated_at"]
+
+class ProjectListSerializer(serializers.ModelSerializer):
+    category = ProjectCategorySerializer(read_only=True)
+    class Meta:
+        model = Project
+        fields = [
+            "id",
+            "name",
+            "category",
+            "description",
+            "created_at",
+            "updated_at",
         ]
         read_only_fields = ["created_at", "updated_at"]
 

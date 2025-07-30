@@ -9,10 +9,10 @@ from core.views import (
 )
 
 urlpatterns = [
-    path('blogs', BlogPostListView.as_view(), name='blog-list'),
-    path('blog/<int:id>', BlogPostDetailView.as_view(), name='blog-detail'),
-    path('categories', ProjectCategoryListView.as_view(), name='project-category-list'),
-    path('projects', ProjectListView.as_view(), name='project-list'),
-    path('projects/<int:id>', ProjectDetailView.as_view(), name='project-detail'),
-    path('contact/create', ContactUsCreateView.as_view(), name='contact-create'),
+    path('blogs/', BlogPostListView.as_view(), name='blog-list'),
+    path('blog/<int:id>/', BlogPostDetailView.as_view(), name='blog-detail'),
+    path('categories/', ProjectCategoryListView.as_view(), name='project-category-list'),
+    path('projects/', ProjectListView.as_view(), name='project-list'),
+    path('projects/<int:id>/', ProjectDetailView.as_view(), name='project-detail'),
+    path('contact/create/', ContactUsCreateView.as_view(), name='contact-create'),
 ]

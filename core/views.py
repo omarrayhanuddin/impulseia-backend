@@ -2,7 +2,8 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
 from .serializers import (
     BlogPostSerializer,
     ProjectCategorySerializer,
-    ProjectSerializer,
+    ProjectListSerializer,
+    ProjectDetailSerializer,
     ContactUsSerializer
 )
 from core.models import BlogPost, ProjectCategory, Project, ContactUs
@@ -23,11 +24,11 @@ class ProjectCategoryListView(ListAPIView):
 
 class ProjectListView(ListAPIView):
     queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+    serializer_class = ProjectListSerializer
 
 class ProjectDetailView(RetrieveAPIView):
     queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+    serializer_class = ProjectDetailSerializer
     lookup_field = 'id'
 
 
